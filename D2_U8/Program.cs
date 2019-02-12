@@ -10,7 +10,7 @@ namespace MD1_U5
     {
         static void Main(string[] args)
         {
-            menesaDienas();
+           // menesaDienas();
             Console.Read();
         }
 

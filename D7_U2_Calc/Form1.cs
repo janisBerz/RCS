@@ -14,6 +14,7 @@ namespace D7_U2_Calc
     {
         string enterNumber = "";
         string operation = "";
+        bool isOperatonClicked = false;
 
         public Form1()
         {
@@ -38,6 +39,12 @@ namespace D7_U2_Calc
 
         private void number_clicked(int num)
         {
+            if (isOperatonClicked)
+            {
+                inputNumber.Text = "";
+                isOperatonClicked = false;
+            }
+
             if (inputNumber.Text == "0")
             {
                 inputNumber.Text = "";
@@ -48,11 +55,25 @@ namespace D7_U2_Calc
         private void operation_cliced(string op)
         {
 
+
+
+
+            // 1. saglabat esosos skaitli enteredNumber
+            enterNumber = inputNumber.Text;
+
+            // 2. izveleta darbiba jasaglaba ka "operation"
+
+            operation = op;
+            // 3. spiezot ciparu pec darbibas - jasak jauna ievade
+
+            isOperatonClicked = true;
+
+
         }
 
         private void ButtonClear_Click(object sender, EventArgs e)
         {
-            inputNumber.Text = "";
+            inputNumber.Text = "0";
         }
 
         private void ButtonEq_Click(object sender, EventArgs e)
@@ -63,17 +84,17 @@ namespace D7_U2_Calc
         private void ButtonDivid_Click(object sender, EventArgs e)
         {
 
-            operation_cliced(buttonDivid.Text);
+            operation_cliced("/");
         }
 
         private void ButtonMultiply_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            operation_cliced("*");
         }
 
         private void ButtonSubtract_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            operation_cliced("-");
         }
 
         private void Button_9_Click(object sender, EventArgs e)
