@@ -2,18 +2,19 @@ package app;
 
 import java.util.Scanner;
 
-import org.omg.CORBA.portable.ValueOutputStream;
-
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("--- 1. Uzdevums ---");
-        // task1();
+        task1();
 
         System.out.println("--- 2. Uzdevums ---");
-        // task2();
+        task2();
 
         System.out.println("--- 3. Uzdevums ---");
-         task3();
+        task3();
+
+        System.out.println("--- 4. Uzdevums ---");
+        task4();
     }
 
     static void task1() {
@@ -52,13 +53,30 @@ public class App {
         System.out.println("Ievadi pirmo skailti:");
         int intOne = sc.nextInt();
 
-        System.out.println("Ievadi otro vecumu:");
+        System.out.println("Ievadi vecumu:");
         int intTwo = sc.nextInt();
 
         if (intOne > intTwo) {
             System.out.println(intOne);
-        }else{
+        } else {
             System.out.println(intTwo);
+        }
+        sc.close();
+    }
+
+    static void task4() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ievadi pirmo skailti:");
+        Double intOne = sc.nextDouble();
+
+        System.out.println("Ievadi otro skaitli:");
+        Double intTwo = sc.nextDouble();
+
+        if (intOne == intTwo) {
+            System.out.println("Skaitli ir vienadi");
+        } else {
+            System.out.println("Skailti nav vienadi");
         }
         sc.close();
     }
