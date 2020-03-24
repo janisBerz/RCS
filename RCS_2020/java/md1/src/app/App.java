@@ -1,5 +1,6 @@
 package app;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
@@ -31,7 +32,7 @@ public class App {
 
         System.out.println("Summa: " + (sk1 + sk2 + sk3));
 
-        sc.close();
+        //sc.close();
     }
 
     static void task2() {
@@ -44,7 +45,7 @@ public class App {
         int age = sc.nextInt();
 
         System.out.println(String.format("%s ir %s gadus vecs.", firstName, age));
-        sc.close();
+        //sc.close();
     }
 
     static void task3() {
@@ -53,7 +54,7 @@ public class App {
         System.out.println("Ievadi pirmo skailti:");
         int intOne = sc.nextInt();
 
-        System.out.println("Ievadi vecumu:");
+        System.out.println("Ievadi otro skaitli:");
         int intTwo = sc.nextInt();
 
         if (intOne > intTwo) {
@@ -61,7 +62,7 @@ public class App {
         } else {
             System.out.println(intTwo);
         }
-        sc.close();
+        //sc.close();
     }
 
     static void task4() {
@@ -78,7 +79,7 @@ public class App {
         } else {
             System.out.println("Skailti nav vienadi");
         }
-        sc.close();
+        //sc.close();
     }
 
 }
