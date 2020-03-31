@@ -4,22 +4,28 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        createArray();
+        reverseArrayElements();
     }
 
-    public static void createArray() {
+    public static void reverseArrayElements() {
 
-        String[] stringArray = new String[3];
         Scanner sc = new Scanner(System.in);
+        int[] primaryArray = new int[4];
+        int[] secondaryArray = new int[4];
 
-        for (int i = 0; i < stringArray.length; i++) {
+        for (int i = 0; i < primaryArray.length; i++) {
 
             System.out.println(String.format("Ievadi %s. skaitli", i));
-            stringArray[i] = sc.next();
+            primaryArray[i] = sc.nextInt();
         }
 
-        for (int i = 0; i < stringArray.length; i++) {
-            System.out.println(String.format("Masiva indekss %s. vertiba: %s", i, stringArray[i]));
+        for (int i = 0; i < secondaryArray.length; i++) {
+
+            secondaryArray[i] = primaryArray[secondaryArray.length - 1 - i];
+        }
+
+        for (int i = 0; i < secondaryArray.length; i++) {
+            System.out.print(secondaryArray[i] + " ");
         }
 
     }
