@@ -36,18 +36,17 @@ namespace MD2._1
                 eglesVeids = Console.ReadLine();
             }
 
-            if (50 <= x && x < 100 && 100 <= y && y < 150)
+            if (x <= 50 && x < 100 && y <= 100 && y < 150)
             {
                 Console.WriteLine("Viesistaba 1");   
             }
-            else if (100 <= x && x < 150 && 150 <= y && y < 200)
+            else if (x <= 100 && x < 150 && y <= 150 && y < 200)
             {
                 Console.WriteLine("Viesistaba 2");
             }
-            else if (150 <= x && y <= 300 && 200 <= y && y <= 300 || eglesVeids == "sudraba")
+            else if (x <= 150 && y <= 300 && y <= 200 && y <= 300 || eglesVeids == "sudraba")
             {
-                Console.WriteLine("Viesistaba Kamīnzāle");
-                //Kamīnzāle
+                Console.WriteLine("Kamīnzāle");
             }
 
 
