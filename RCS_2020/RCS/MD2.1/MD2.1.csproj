@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RCS</RootNamespace>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>MD2._1</RootNamespace>
   </PropertyGroup>
 
 </Project>
