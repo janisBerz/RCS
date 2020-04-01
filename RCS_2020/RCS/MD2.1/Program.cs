@@ -48,11 +48,10 @@ namespace MD2._1
             {
                 Console.WriteLine("Kamīnzāle");
             }
-
-
-
-
-
+            else
+            {
+                Console.WriteLine("Nepareizi parametri");
+            }
         }
     }
 }
