@@ -6,18 +6,30 @@ namespace MD3.MaxMin
     {
         static void Main(string[] args)
         {
-            int[] intArray = { -10, 11, 234234, 1212, 3 };
+            int[] intArray = { -10, 11, 234234, 1212, -20 };
             
-            int min = int.MinValue;
-            int max = int.MaxValue;
+            int min = intArray[0];
+            int max = intArray[0];
 
-            for (int i = 0; i < intArray.Length; i++)
+            for (int i = 1; i < intArray.Length; i++)
             {
-                if (intArray[i] > min)
+                if (intArray[i] > max)
                 {
                     max = intArray[i];
                 }
             }
+
+            for (int i = 1; i < intArray.Length; i++)
+            {
+                if (intArray[i] < min)
+                {
+                    min = intArray[i];
+                }
+            }
+
+            Console.WriteLine($"Max: {max}");
+            Console.WriteLine($"Min: {min}");
+
         }
     }
 }
