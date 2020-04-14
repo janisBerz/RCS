@@ -83,6 +83,19 @@ namespace TicTacToe
 
         private static bool IsGameFinished(FieldEnum[,] board)
         {
+
+            switch (board)
+            {
+                case board[1,1];
+                    break;
+                case FieldEnum.X:
+                    break;
+                case FieldEnum.O:
+                    break;
+                default:
+                    break;
+            }
+
             return false;
         }
 
