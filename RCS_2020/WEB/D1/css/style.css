@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    background-color: 222;
+
+}
+h1{
+    color: 777;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#top-image{
+    margin: 15px 0;
+
+}
+
+.img-fluid{
+    max-width: 100%;
+}
+
+.article
+{
+    width: 33.33%;
+    float: left;
+}
+
+.article img {
+    max-width: 100%;
+}
