@@ -6,11 +6,9 @@ namespace Day4_Loops_MD
     {
         static void Main(string[] args)
         {
-            //GuesNumber();
-
-            
-
+            GuesNumber();
             Console.WriteLine(RaiseInt(2, 3));
+            Piramid();
         }
 
         //1) Patstāvīgi atrast kā ģenerēt random skaitli.Lietotājs cenšas uzminēt skaitli piecas reizes, ja neizdodas, tad zaudē, ja izdodas, tad uzvar.
@@ -50,7 +48,6 @@ namespace Day4_Loops_MD
             {
                 result *= a;
             }
-
             return result;
         }
 
@@ -60,7 +57,17 @@ namespace Day4_Loops_MD
         //4 5 6
         //7 8 9 10 
 
-
-
+        public static void Piramid()
+        {
+            int a = 1;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    Console.Write(a++ + " ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
