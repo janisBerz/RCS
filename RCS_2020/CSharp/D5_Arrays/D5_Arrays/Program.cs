@@ -30,6 +30,7 @@ namespace D5_Arrays
             }
 
             Console.WriteLine($"Total: {result}");
+            Console
         }
 
     }
