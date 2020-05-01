@@ -9,10 +9,11 @@ namespace Task3
             PrintElemet();
         }
 
-        public static void PrintElemet() 
+        public static void PrintElemet()
         {
             Random random = new Random();
             int[] a = new int[10];
+            bool arrayContainsInt = false;
 
             for (int i = 0; i < a.Length; i++)
             {
@@ -22,12 +23,18 @@ namespace Task3
             Console.Write("Enter number: ");
             int b = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i == a.Length; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] == b)
                 {
-                    Console.Write(i);
+                    Console.Write(i + " ");
+                    arrayContainsInt = true;
                 }
+            }
+
+            if (!arrayContainsInt)
+            {
+                Console.WriteLine("The array did not contain the integer you were searching for :(");
             }
         }
     }
