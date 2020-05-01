@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    block-size: border-box;
+}
+
+header, footer {
+    background-color: #222;
+}
+
+header {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+.jc-center {
+    justify-content: space-between;
+}
+
+.ai-center{
+    align-content: center;
+}
+
+.h50 {
+    height: 50px;
+}
+
+.bl-flex {
+    display: flex;
+}
+
+.nav__items {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #fff;
+    margin: 0 0 0 15px;
+    transition: all 0.5;
+}
+
+.nav__items:hover{
+    background-color: red;
+}
+
+.logo {
+    color: #fff;
+}
+
+.bg-top {
+    background-image: url("https://picsum.photos/id/1000/2000/1300");
+    background-repeat: no-repeat;
+    background-size: ;
+
+}
+
+.vh100 {
+    height: ;
+}

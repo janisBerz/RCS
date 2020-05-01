@@ -1,0 +1,16 @@
+.top-img {
+  background-image: url("https://picsum.photos/id/100/2000/1300");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.btn-secondary {
+  background-color: red;
+  border-color: red;
+}
+
+.btn-secondary:hover {
+  background-color: #f9207c;
+  border-color: #f9207c;
+}
