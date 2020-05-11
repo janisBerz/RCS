@@ -7,11 +7,12 @@ namespace Day7_objects
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Course { get; set; }
+
         public Student(string name, string surname, int course) 
         {
             Name = name;
             Surname = surname;
-            Course = course;
+            setCourse(course);
         }
 
         public void setName(String name)
