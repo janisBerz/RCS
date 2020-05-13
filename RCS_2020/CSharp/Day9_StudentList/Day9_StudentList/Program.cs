@@ -7,7 +7,7 @@ namespace Day9_StudentList
     {
         static void Main(string[] args)
         {
-            List<Student> studentList = new List<Student>();
+            List<Students> studentList = new List<Students>();
 
             string answer = "";
             while (answer != "0")
@@ -17,15 +17,18 @@ namespace Day9_StudentList
                 Console.WriteLine("2 - Add new student");
                 Console.WriteLine("0 - exit");
 
+                answer = Console.ReadLine();
+
                 switch (answer)
                 {
                     case "1":
-                        Student.PrintAllStudents(studentList);
+                        StudentsHelpers.PrintAllStudents(studentList);
                         break;
                     case "2":
-                        Student.AddStudnet();
+                        StudentsHelpers.AddStudnet(studentList);
                         break;
                     default:
+                        Console.WriteLine("Wrong menu item selected!");
                         break;
                 }
             }
