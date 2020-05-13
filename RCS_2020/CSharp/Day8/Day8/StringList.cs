@@ -6,7 +6,7 @@ namespace Day8
 {
     class StringList
     {
-        private List<String> listOfValues;
+        private  List<String> listOfValues;
 
         public StringList()
         {
