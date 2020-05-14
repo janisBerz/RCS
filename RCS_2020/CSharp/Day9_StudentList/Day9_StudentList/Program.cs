@@ -13,7 +13,7 @@ namespace Day9_StudentList
             while (answer != "0")
             {
                 Console.WriteLine("--- Menu ---");
-                Console.WriteLine("1 - print student list");
+                Console.WriteLine("1 - Print student list");
                 Console.WriteLine("2 - Add new student");
                 Console.WriteLine("0 - exit");
 

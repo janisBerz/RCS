@@ -21,10 +21,10 @@ namespace Day9_StudentList
                 Console.Write("Enter year: ");
                 year = int.Parse(Console.ReadLine());
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                Console.WriteLine("");
+                Console.WriteLine($"ERROR: Ievadi gadu! {e.Message}");
             }
 
             studentList.Add(new Students(name, surname, year));
