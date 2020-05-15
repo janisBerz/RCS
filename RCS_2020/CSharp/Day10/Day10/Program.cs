@@ -29,7 +29,7 @@ namespace Day10
             {
                 for (int j = 0; j < a.Length - i - 1; j++)
                 {
-                    if (a[j] > a[j + 1])
+                    if (a[j] < a[j + 1])
                     {
                         int z = a[j];
                         a[j] = a[j + 1];
