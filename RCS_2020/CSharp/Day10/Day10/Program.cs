@@ -10,21 +10,52 @@ namespace Day10
             // ģenerēt ar random (0 - 40)
             // sakartot skaitļus augošā secībā izmantojos bubble sort metodi
 
-            int[] a = new int[10];
-            Random random = new Random();
+            var array = NewArray(5);
 
-            for (int i = 0; i < a.Length; i++)
+            PrintArray(array);
+
+            QuickSort(array, 0, array.Length);
+
+            Console.WriteLine();
+
+            PrintArray(array);
+
+
+        }
+
+        public static void QuickSort(int[] array, int low, int high)
+        {
+            int partitionIndex = PartitionIndex(array, low, high);
+            QuickSort(array, low, partitionIndex - 1);
+            QuickSort(array, partitionIndex + 1, high);
+            
+        }
+
+        private static int PartitionIndex(int[] array, int low, int high)
+        {
+            int pivot = array[high];
+            int i = low - 1;
+
+            for (int j = low; j < high -1; j++)
             {
-                a[i] = random.Next(40);
+                if (array[j] < pivot)
+                {
+                    i++;
+                    int z = array[i];
+                    array[i] = array[j];
+                    array[j] = z;
+                }
             }
 
-            Console.Write("New array: ");
+            int zz = array[i + 1];
+            array[i + 1] = array[high];
+            array[high] = zz;
 
-            for (int i = 0; i < a.LongLength; i++)
-            {
-                Console.Write(a[i] + " ");
-            }
+            return (i + 1);
+        }
 
+        public static void BubbleSort(int[] a)
+        {
             for (int i = 0; i < a.Length - 1; i++)
             {
                 for (int j = 0; j < a.Length - i - 1; j++)
@@ -37,15 +68,26 @@ namespace Day10
                     }
                 }
             }
+        }
 
-            Console.WriteLine();
-            Console.Write("Sorted array: ");
+        public static int[] NewArray(int arraySize)
+        {
+            int[] a = new int[arraySize];
+            Random random = new Random();
 
             for (int i = 0; i < a.Length; i++)
             {
-                Console.Write(a[i] + " ");
+                a[i] = random.Next(40);
             }
+            return a;
+        }
 
+        public static void PrintArray(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
         }
     }
 }
