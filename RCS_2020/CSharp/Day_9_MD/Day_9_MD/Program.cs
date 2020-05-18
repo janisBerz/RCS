@@ -20,16 +20,15 @@ namespace Day_9_MD
             // izvēlas lietotājs
 
             List<Car> cars = new List<Car>();
-            string answer = Console.ReadLine();
+            string answer ="";
 
-            if (cars.Count > 5)
+            if (cars.Count < 5)
             {
                 Console.WriteLine("Add more cars to the list!");
                 for (int i = 0; i < 5; i++)
                 {
                     Operations.AddCars(cars);
                 }
-
             }
 
             while (answer != "0")
