@@ -11,7 +11,7 @@ namespace Day_9_MD
         {
             Console.WriteLine();
             Console.WriteLine("-------------------------------");
-            Console.WriteLine("Please add car to the list...");
+            Console.WriteLine("Please add car to the list.");
             Console.WriteLine();
 
             string brand = "";
@@ -29,12 +29,15 @@ namespace Day_9_MD
 
             while (!isInt)
             {
-                Console.WriteLine("Please enter an integer!");
-                Console.Write("Doors: ");
                 isInt = int.TryParse(Console.ReadLine(), out doors);
+                if (!isInt)
+                {
+                    Console.WriteLine("Please enter an integer!");
+                    Console.Write("Doors: ");
+                }
             }
 
-            cars.Add(new Car(brand, colour, doors));
+            cars.Add(new Car(brand.ToUpper(), colour.ToUpper(), doors));
         }
 
         public static void PrintCarList(List<Car> cars)
@@ -46,12 +49,63 @@ namespace Day_9_MD
             {
                 foreach (Car car in cars)
                 {
-                    Console.WriteLine($"Brand: {car.Brand}; Colour: {car.Colour}; Doors: {car.Doors}");
+                    Console.WriteLine($"Brand: {car.Brand}; Color: {car.Colour}; Doors: {car.Doors}");
                 }
             }
             else
             {
                 Console.WriteLine("Add some cars...");
+            }
+        }
+
+        public static void SearchCar(List<Car> cars)
+        {
+            Console.WriteLine("----------");
+            Console.WriteLine("Search by: ");
+            Console.WriteLine("1 - Brand");
+            Console.WriteLine("2 - Doors");
+            Console.WriteLine("3 - Color");
+
+            string answer = Console.ReadLine();
+
+            switch (answer)
+            {
+                case "1":
+                    Console.Write("Enter brand name: ");
+                    string carBrand = Console.ReadLine();
+                    foreach (Car car in cars)
+                    {
+                        if (car.Brand == carBrand)
+                        {
+                            Console.WriteLine($"Brand: {car.Brand}; Color: {car.Colour}; Doors: {car.Doors}");
+                        }
+                    }
+                    break;
+                case "2":
+                    Console.Write("Enter door amount: ");
+                    int doors = int.Parse(Console.ReadLine());
+                    foreach (Car car in cars)
+                    {
+                        if (car.Doors == doors)
+                        {
+                            Console.WriteLine($"Brand: {car.Brand}; Color: {car.Colour}; Doors: {car.Doors}");
+                        }
+                    }
+                    break;
+                case "3":
+                    Console.Write("Enter color: ");
+                    string color = Console.ReadLine();
+                    foreach (Car car in cars)
+                    {
+                        if (car.Colour == color)
+                        {
+                            Console.WriteLine($"Brand: {car.Brand}; Color: {car.Colour}; Doors: {car.Doors}");
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong menu item!");
+                    break;
             }
         }
     }

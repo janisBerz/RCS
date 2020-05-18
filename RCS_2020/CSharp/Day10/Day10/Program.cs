@@ -14,7 +14,7 @@ namespace Day10
 
             PrintArray(array);
 
-            QuickSort(array, 0, array.Length);
+            QuickSort(array, 0, array.Length - 1);
 
             Console.WriteLine();
 
