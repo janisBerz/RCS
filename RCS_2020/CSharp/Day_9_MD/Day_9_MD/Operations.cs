@@ -37,7 +37,7 @@ namespace Day_9_MD
                 }
             }
 
-            cars.Add(new Car(brand.ToUpper(), colour.ToUpper(), doors));
+            cars.Add(new Car(brand.ToUpper().Trim(), colour.ToUpper().Trim(), doors));
         }
 
         public static void PrintCarList(List<Car> cars)
@@ -75,7 +75,7 @@ namespace Day_9_MD
                     string carBrand = Console.ReadLine();
                     foreach (Car car in cars)
                     {
-                        if (car.Brand == carBrand)
+                        if (car.Brand.ToUpper().Trim() == carBrand.ToUpper().Trim())
                         {
                             Console.WriteLine($"Brand: {car.Brand}; Color: {car.Colour}; Doors: {car.Doors}");
                         }
@@ -97,7 +97,7 @@ namespace Day_9_MD
                     string color = Console.ReadLine();
                     foreach (Car car in cars)
                     {
-                        if (car.Colour == color)
+                        if (car.Colour.ToUpper().Trim() == color.ToUpper().Trim())
                         {
                             Console.WriteLine($"Brand: {car.Brand}; Color: {car.Colour}; Doors: {car.Doors}");
                         }
