@@ -9,34 +9,42 @@ namespace Day10
             //masīvs ar 10 elementiem
             // ģenerēt ar random (0 - 40)
             // sakartot skaitļus augošā secībā izmantojos bubble sort metodi
+            // Salīdzināt abiem kārtošanas algoritmiem izpildes laiku.
 
-            var array = NewArray(5);
+            // create array
+            var array = NewArray(100000);
 
-            PrintArray(array);
-
+            // run quick sort
+            var quickSortWatch = System.Diagnostics.Stopwatch.StartNew();
             QuickSort(array, 0, array.Length - 1);
+            quickSortWatch.Stop();
+            var quickSortTime = quickSortWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Quicksort time in ms: {quickSortTime}");
 
-            Console.WriteLine();
-
-            PrintArray(array);
-
-
+            //run bubble sort
+            var bubbleSortWatch = System.Diagnostics.Stopwatch.StartNew();
+            BubbleSort(array);
+            bubbleSortWatch.Stop();
+            var bubbleSortTime = bubbleSortWatch.ElapsedMilliseconds;
+            Console.WriteLine($"Bubblesort time in ms: {bubbleSortTime}");
         }
 
         public static void QuickSort(int[] array, int low, int high)
         {
-            int partitionIndex = PartitionIndex(array, low, high);
-            QuickSort(array, low, partitionIndex - 1);
-            QuickSort(array, partitionIndex + 1, high);
-            
+            if (low < high)
+            {
+                int partitionIndex = PartitionIndex(array, low, high);
+                QuickSort(array, low, partitionIndex - 1);
+                QuickSort(array, partitionIndex + 1, high);
+            }            
         }
 
         private static int PartitionIndex(int[] array, int low, int high)
         {
             int pivot = array[high];
-            int i = low - 1;
+            int i = (low - 1);
 
-            for (int j = low; j < high -1; j++)
+            for (int j = low; j < high; j++)
             {
                 if (array[j] < pivot)
                 {
@@ -77,7 +85,7 @@ namespace Day10
 
             for (int i = 0; i < a.Length; i++)
             {
-                a[i] = random.Next(40);
+                a[i] = random.Next(10000);
             }
             return a;
         }
