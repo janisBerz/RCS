@@ -48,7 +48,6 @@ namespace WebShop
         static ShopItem ReadItemInfo()
         {
             var result = new ShopItem();
-
             Console.WriteLine("Ievadi ID:");
             result.Id = int.Parse(Console.ReadLine());
 
