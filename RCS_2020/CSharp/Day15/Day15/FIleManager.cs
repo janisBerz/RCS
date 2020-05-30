@@ -22,25 +22,68 @@ namespace Day15
                 {
                     Console.WriteLine($"{i} - {directoryContent[i]}");
                 }
-
             }
             return directoryContent;
         }
 
         public static void NewFile(string fileName)
         {
-            string fullPath = tempFolder + fileName;
-            StreamWriter streamWriter = new StreamWriter(fullPath);
-            streamWriter.Close();
+            string fullPath = tempFolder + fileName + ".txt";
+
+            if (!File.Exists(fullPath))
+            {
+                StreamWriter streamWriter = new StreamWriter(fullPath);
+                streamWriter.Close();
+            }
+            else if (File.Exists(fullPath))
+            {
+                Console.WriteLine($"File {fullPath} already exists?");
+                Console.WriteLine($"Overwrite (y/n)?");
+
+                switch (Console.ReadLine())
+                {
+                    case "y":
+                        StreamWriter streamWriter = new StreamWriter(fullPath);
+                        streamWriter.Close();
+                        break;
+                    case "n":
+                        Console.WriteLine("File not saved");
+                        break;
+                    default:
+                        break;
+                }
+            }
 
         }
 
         public static void NewFile(string fileName, string payload)
         {
-            string fullPath = tempFolder + fileName;
-            StreamWriter streamWriter = new StreamWriter(fullPath);
-            streamWriter.WriteLine(payload);
-            streamWriter.Close();
+            string fullPath = tempFolder + fileName + ".txt";
+            if (!File.Exists(fullPath))
+            {
+                StreamWriter streamWriter = new StreamWriter(fullPath);
+                streamWriter.WriteLine(payload);
+                streamWriter.Close();
+            }
+            else if (File.Exists(fullPath))
+            {
+                Console.WriteLine($"File {fullPath} already exists?");
+                Console.WriteLine($"Overwrite (y/n)?");
+
+                switch (Console.ReadLine())
+                {
+                    case "y":
+                        StreamWriter streamWriter = new StreamWriter(fullPath);
+                        streamWriter.WriteLine(payload);
+                        streamWriter.Close();
+                        break;
+                    case "n":
+                        Console.WriteLine("File not saved");
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         public static void AppendToFile(string fullPath)
