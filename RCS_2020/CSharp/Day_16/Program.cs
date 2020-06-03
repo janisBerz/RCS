@@ -8,8 +8,6 @@ namespace Day_16
     {
         static void Main(string[] args)
         {
-
-            List<Student> students = new List<Student>();
             string answer = null;
 
             while (answer != "0")
@@ -34,7 +32,7 @@ namespace Day_16
             }
         }
 
-        // Is this teh correct aproach to use constructor in a method outside the Student.cs file?
+        // Is this the correct aproach to use constructor in a method outside the Student.cs file?
         public static Student AddStudent()
         {
             Console.Write("Name: ");
@@ -51,6 +49,7 @@ namespace Day_16
             return student;
         }
 
+        // where would I add this method to Student or FileManager class?
         public static void PrintStudents()
         {
             string line;
