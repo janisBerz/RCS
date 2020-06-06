@@ -17,8 +17,7 @@ namespace Day17
             {
                 Console.WriteLine("--- menu --");
                 Console.WriteLine("1 - add student");
-                Console.WriteLine("2 - print students");
-                Console.WriteLine("3 - remove students");
+                Console.WriteLine("0 - exit");
 
                 answer = Console.ReadLine();
 
@@ -26,12 +25,7 @@ namespace Day17
                 {
                     case "1":
                         AddStudent(students);
-                        break;
-                    case "2":
                         Student.PrintStudents(students);
-                        break;
-                    case "3":
-                        Student.RemoveStudent(students);
                         break;
                     default:
                         Console.WriteLine("Please enter the correct option");
@@ -40,7 +34,6 @@ namespace Day17
             }
         }
 
-        // Is this the correct aproach to use constructor in a method outside the Student.cs file?
         public static void AddStudent(List<Student> students)
         {
             Console.Write("Name: ");
