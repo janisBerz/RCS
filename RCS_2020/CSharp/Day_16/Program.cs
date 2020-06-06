@@ -18,6 +18,8 @@ namespace Day_16
                 Console.WriteLine("--- menu --");
                 Console.WriteLine("1 - add student");
                 Console.WriteLine("2 - print students");
+                Console.WriteLine("3 - print students");
+
                 answer = Console.ReadLine();
 
                 switch (answer)
@@ -27,6 +29,9 @@ namespace Day_16
                         break;
                     case "2":
                         Student.PrintStudents(students);
+                        break;
+                    case "3":
+                        Student.RemoveStudent(students);
                         break;
                     default:
                         Console.WriteLine("Please enter the correct option");

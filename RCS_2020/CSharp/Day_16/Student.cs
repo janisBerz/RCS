@@ -52,12 +52,25 @@ namespace Day_16
         // where would I add this method to Student or FileManager class?
         public static void PrintStudents(List<Student> students)
         {
+            int i = 0;
             foreach (var student in students)
             {
-                Console.WriteLine($"name: {student.name}, surname: {student.surname}, year: {student.course}");
+                Console.WriteLine($" ID: {i} name: {student.name}, surname: {student.surname}, year: {student.course}");
+                i++;
             }
         }
 
+        public static void EditStudent(List<Student> students)
+        {
+            Console.Write("Entet student ID: ");
+            int id = int.Parse(Console.ReadLine());
+        }
+
+        public static void RemoveStudent(List<Student> students)
+        {
+            Console.WriteLine($"Removing student: {students[int.Parse(Console.ReadLine())].getName()}...");
+            students.RemoveAt(int.Parse(Console.ReadLine()));
+        }
 
         public String getName()
         {
