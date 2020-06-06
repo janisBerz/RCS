@@ -47,6 +47,18 @@ namespace Day_16
             return $"{name},{surname},{course}";
         }
 
+
+
+        // where would I add this method to Student or FileManager class?
+        public static void PrintStudents(List<Student> students)
+        {
+            foreach (var student in students)
+            {
+                Console.WriteLine($"name: {student.name}, surname: {student.surname}, year: {student.course}");
+            }
+        }
+
+
         public String getName()
         {
             return name;

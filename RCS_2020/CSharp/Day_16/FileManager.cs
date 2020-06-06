@@ -7,25 +7,56 @@ namespace Day_16
 {
     class FileManager
     {
-        private static string tempFolder
-        {
-            get { return "C:\\temp\\"; }
-        } 
         public static string studentsDB
         {
             get { return "C:\\temp\\studenst.csv"; }
         }
 
-        public static void AppendToFile(string student)
+        public static void SaveDB(List<Student> students)
         {
-            if (!FindDuplicateStudent(studentsDB, student))
+            Console.WriteLine("Saving student to DB...");
+
+            foreach (var student in students)
             {
-                StreamWriter streamWriter = new StreamWriter(studentsDB, true);
-                streamWriter.WriteLine(student);
+                if (!FindDuplicateStudent(studentsDB, student))
+                {
+                    StreamWriter streamWriter = new StreamWriter(studentsDB);
+                    streamWriter.WriteLine($"{student.getName()},{student.getSurname()},{student.getCourse()}");
+                    streamWriter.Close();
+                }
+            }
+
+        }
+
+        public static List<Student> ReadDB()
+        {
+            Console.WriteLine("Reading student DB...");
+
+            List<Student> students = new List<Student>();
+            string line = "";
+            StreamReader sr = new StreamReader(studentsDB);
+
+            if (!File.Exists(studentsDB))
+            {
+                Console.WriteLine("Student DB not found. Creating new DB...");
+                StreamWriter streamWriter = new StreamWriter(studentsDB);
                 streamWriter.Close();
             }
+
+            line = sr.ReadLine();
+            while (line != null)
+            {
+
+                string[] a = line.Split(',');
+                Student student = new Student(a[0], a[1], int.Parse(a[2]));
+                students.Add(student);
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            return students;
         }
-        public static Boolean FindDuplicateStudent(string fullPath, string student)
+
+        public static Boolean FindDuplicateStudent(string fullPath, Student student)
         {
             string line;
             try
@@ -41,18 +72,20 @@ namespace Day_16
 
                 while (line != null)
                 {
-                    line = sr.ReadLine();
-                    if (line == student)
+                    if (line == $"{student.getName()},{student.getSurname()},{student.getCourse()}")
                     {
+                        Console.WriteLine($"Found duplicate: {student.StudnetToString()}");
                         sr.Close();
                         return true;
                     }
+
+                    line = sr.ReadLine();
                 }
                 sr.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine("ERROR: File not found!");
+                Console.WriteLine($"ERROR: File not found! {e.Message}");
             }
             return false;
         }

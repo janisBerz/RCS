@@ -8,8 +8,11 @@ namespace Day_16
     {
         static void Main(string[] args)
         {
+            // Load student DB from file
+            List<Student> students = FileManager.ReadDB();
             string answer = null;
 
+            //Start the menu
             while (answer != "0")
             {
                 Console.WriteLine("--- menu --");
@@ -20,10 +23,10 @@ namespace Day_16
                 switch (answer)
                 {
                     case "1":
-                        FileManager.AppendToFile(AddStudent().StudnetToString());
+                        AddStudent(students);
                         break;
                     case "2":
-                        PrintStudents();
+                        Student.PrintStudents(students);
                         break;
                     default:
                         Console.WriteLine("Please enter the correct option");
@@ -33,7 +36,7 @@ namespace Day_16
         }
 
         // Is this the correct aproach to use constructor in a method outside the Student.cs file?
-        public static Student AddStudent()
+        public static void AddStudent(List<Student> students)
         {
             Console.Write("Name: ");
             string name = Console.ReadLine();
@@ -46,32 +49,9 @@ namespace Day_16
 
             Student student = new Student(name, surname, year);
 
-            return student;
-        }
+            students.Add(student);
 
-        // where would I add this method to Student or FileManager class?
-        public static void PrintStudents()
-        {
-            string line;
-            try
-            {
-                StreamReader sr = new StreamReader(FileManager.studentsDB);
-                line = sr.ReadLine();
-
-                while (line != null)
-                {
-                    line = sr.ReadLine();
-                    string[] a = line.Split(",");
-
-                    Console.WriteLine($"name: {a[0]}, surname: {a[1]}, year: {a[2]}");
-                }
-                sr.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"ERROR: File not found! Message: {e.Message}");
-            }
-
+            FileManager.SaveDB(students);
         }
     }
 }
