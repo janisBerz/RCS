@@ -19,6 +19,9 @@ namespace Day_16
                 Console.WriteLine("1 - add student");
                 Console.WriteLine("2 - print students");
                 Console.WriteLine("3 - remove students");
+                Console.WriteLine("7 - add test data");
+                Console.WriteLine("8 - drop student DB");
+
 
                 answer = Console.ReadLine();
 
@@ -33,6 +36,20 @@ namespace Day_16
                     case "3":
                         Student.RemoveStudent(students);
                         break;
+                    case "7":
+                        for (int i = 0; i < 10; i++)
+                        {
+                            Student student = new Student(name: "Juris" + i, surname: "Burka" + i, course: i);
+                            students.Add(student);
+                            FileManager.SaveDB(students);
+                        }
+                        break;
+
+                    case "8":
+                        students.Clear();
+                        FileManager.SaveDB(students);
+                        break;
+
                     default:
                         Console.WriteLine("Please enter the correct option");
                         break;

@@ -20,7 +20,7 @@ namespace Day_16
             {
                 if (!FindDuplicateStudent(studentsDB, student))
                 {
-                    StreamWriter streamWriter = new StreamWriter(studentsDB);
+                    StreamWriter streamWriter = new StreamWriter(studentsDB, true);
                     streamWriter.WriteLine($"{student.getName()},{student.getSurname()},{student.getCourse()}");
                     streamWriter.Close();
                 }
