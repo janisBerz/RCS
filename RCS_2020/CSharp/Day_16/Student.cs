@@ -72,20 +72,68 @@ namespace Day_16
 
         public static void EditStudent(List<Student> students)
         {
-            Console.Write("Entet student ID: ");
-            int id = int.Parse(Console.ReadLine());
+            try
+            {
+                if (students.Count > 0)
+                {
+                    Console.Write("Enter student ID: ");
+                    int id = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("What property would you like to edit?");
+                    Console.WriteLine("1 - add student");
+                    Console.WriteLine("2 - print students");
+                    Console.WriteLine("3 - remove students");
+
+                    string answer = Console.ReadLine();
+
+
+                    switch (answer)
+                    {
+                        case "1":
+                            Console.Write("New name: ");
+                            string newName = Console.ReadLine();
+                            students[id].setName(newName);
+                            break;
+                        case "2":
+                            Console.Write("New surname: ");
+                            string newSurname = Console.ReadLine();
+                            students[id].setSurname(newSurname);
+                            break;
+                        case "3":
+                            Console.Write("New surname: ");
+                            int newCourse = int.Parse(Console.ReadLine());
+                            students[id].setCourse(newCourse);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"ERROR: unable to edit student. Trace: {e.Message}");
+            }
         }
 
         public static void RemoveStudent(List<Student> students)
         {
-            Console.WriteLine();
-            Console.Write("Student ID: ");
-            int _studentID = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Removing student: {students[(_studentID)].getName()}...");
-            students.RemoveAt(_studentID);
+            try
+            {
+                Console.WriteLine();
+                Console.Write("Student ID: ");
+                int _studentID = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Removing student: {students[(_studentID)].getName()}...");
+                students.RemoveAt(_studentID);
 
-            FileManager.SaveDB(students);
-            Console.WriteLine();
+                FileManager.SaveDB(students);
+                Console.WriteLine();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine($"ERROR: Unable to remove studnet. Trace: {e.Message}");
+            }
+
         }
 
         public String getName()
