@@ -18,7 +18,7 @@ namespace Day_16
                 Console.WriteLine("--- menu --");
                 Console.WriteLine("1 - add student");
                 Console.WriteLine("2 - print students");
-                Console.WriteLine("3 - print students");
+                Console.WriteLine("3 - remove students");
 
                 answer = Console.ReadLine();
 

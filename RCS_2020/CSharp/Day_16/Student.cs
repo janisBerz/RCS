@@ -53,11 +53,21 @@ namespace Day_16
         public static void PrintStudents(List<Student> students)
         {
             int i = 0;
-            foreach (var student in students)
+            Console.WriteLine();
+            if (students.Count > 0)
             {
-                Console.WriteLine($" ID: {i} name: {student.name}, surname: {student.surname}, year: {student.course}");
-                i++;
+                foreach (var student in students)
+                {
+                    Console.WriteLine($" ID: {i} name: {student.name}, surname: {student.surname}, year: {student.course}");
+                    i++;
+                }
             }
+            else
+            {
+                Console.WriteLine("There are no students in the students DB.");
+            }
+
+            Console.WriteLine();
         }
 
         public static void EditStudent(List<Student> students)
@@ -68,8 +78,14 @@ namespace Day_16
 
         public static void RemoveStudent(List<Student> students)
         {
-            Console.WriteLine($"Removing student: {students[int.Parse(Console.ReadLine())].getName()}...");
-            students.RemoveAt(int.Parse(Console.ReadLine()));
+            Console.WriteLine();
+            Console.Write("Student ID: ");
+            int _studentID = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Removing student: {students[(_studentID)].getName()}...");
+            students.RemoveAt(_studentID);
+
+            FileManager.SaveDB(students);
+            Console.WriteLine();
         }
 
         public String getName()

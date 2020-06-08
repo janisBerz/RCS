@@ -14,7 +14,7 @@ namespace Day_16
 
         public static void SaveDB(List<Student> students)
         {
-            Console.WriteLine("Saving student to DB...");
+            Console.WriteLine("Updating students DB...");
 
             foreach (var student in students)
             {
@@ -25,7 +25,6 @@ namespace Day_16
                     streamWriter.Close();
                 }
             }
-
         }
 
         public static List<Student> ReadDB()
