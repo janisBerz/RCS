@@ -6,48 +6,39 @@ namespace Day17
 {
     class Student
     {
+        // Thsi constructor is not necesarry becasue of auto-property 
+        // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties#auto-implemented-properties
         public Student(String name, String surname, int course)
         {
-            this.name = name;
-            this.surname = surname;
-            setCourse(course);
+            this.Name = name;
+            this.Surname = surname;
+            this.Course = course;
         }
 
-        public String name;
-        public String surname;
-        public int course;
-
-        public void setName(String name)
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        private int _course;
+        public int Course
         {
-            this.name = name;
-        }
-
-        public void setSurname(String surname)
-        {
-            this.surname = surname;
-        }
-
-        public void setCourse(int course)
-        {
-            if (course > 3)
+            get { return _course; }
+            set
             {
-                course = 3;
-            }
+                if (value > 3)
+                {
+                    _course = 3;
+                }
 
-            if (course < 1)
-            {
-                course = 1;
+                if (value < 1)
+                {
+                    _course = 1;
+                }
             }
-
-            this.course = course;
         }
 
         public string StudnetToString()
         {
-            return $"{name},{surname},{course}";
+            return $"{Name},{Surname},{Course}";
         }
-
-
 
         // where would I add this method to Student or FileManager class?
         public static void PrintStudents(List<Student> students)
@@ -55,7 +46,7 @@ namespace Day17
             int i = 0;
             foreach (var student in students)
             {
-                Console.WriteLine($" ID: {i} name: {student.name}, surname: {student.surname}, year: {student.course}");
+                Console.WriteLine($" ID: {i} name: {student.Name}, surname: {student.Surname}, year: {student.Course}");
                 i++;
             }
         }
@@ -68,24 +59,8 @@ namespace Day17
 
         public static void RemoveStudent(List<Student> students)
         {
-            Console.WriteLine($"Removing student: {students[int.Parse(Console.ReadLine())].getName()}...");
+            Console.WriteLine($"Removing student: {students[int.Parse(Console.ReadLine())].Name}...");
             students.RemoveAt(int.Parse(Console.ReadLine()));
         }
-
-        public String getName()
-        {
-            return name;
-        }
-
-        public String getSurname()
-        {
-            return surname;
-        }
-
-        public int getCourse()
-        {
-            return course;
-        }
-
     }
 }
