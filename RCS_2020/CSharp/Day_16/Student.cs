@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Day_16
@@ -80,12 +81,10 @@ namespace Day_16
                     int id = int.Parse(Console.ReadLine());
 
                     Console.WriteLine("What property would you like to edit?");
-                    Console.WriteLine("1 - add student");
-                    Console.WriteLine("2 - print students");
-                    Console.WriteLine("3 - remove students");
-
+                    Console.WriteLine("1 - update name");
+                    Console.WriteLine("2 - update surname");
+                    Console.WriteLine("3 - update course");
                     string answer = Console.ReadLine();
-
 
                     switch (answer)
                     {
@@ -100,11 +99,12 @@ namespace Day_16
                             students[id].setSurname(newSurname);
                             break;
                         case "3":
-                            Console.Write("New surname: ");
+                            Console.Write("New course: ");
                             int newCourse = int.Parse(Console.ReadLine());
                             students[id].setCourse(newCourse);
                             break;
                         default:
+                            Console.WriteLine("Unsupported option");
                             break;
                     }
                 }
@@ -112,6 +112,51 @@ namespace Day_16
             catch (Exception e)
             {
                 Console.WriteLine($"ERROR: unable to edit student. Trace: {e.Message}");
+            }
+        }
+
+        public static void SerchStudent(List<Student> students)
+        {
+            try
+            {
+                if (students.Count > 0)
+                {
+                    Console.WriteLine("What property would you like to edit?");
+                    Console.WriteLine("1 - by name");
+                    Console.WriteLine("2 - by surname");
+                    Console.WriteLine("3 - by course");
+
+                    string answer = Console.ReadLine();
+
+                    switch (answer)
+                    {
+                        case "1":
+                            Console.Write("Name: ");
+                            string name = Console.ReadLine();
+                            var nameList = students.Where(x => x.getName().ToLower() == name.ToLower());
+                            PrintStudents(nameList.ToList<Student>());
+                            break;
+                        case "2":
+                            Console.Write("Surname: ");
+                            string surname = Console.ReadLine();
+                            var surnameList = students.Where(x => x.getSurname().ToLower() == surname.ToLower());
+                            PrintStudents(surnameList.ToList<Student>());
+                            break;
+                        case "3":
+                            Console.Write("Course: ");
+                            int courseNum = int.Parse(Console.ReadLine());
+                            var courseNumList = students.Where(x => x.getCourse().ToString().ToLower() == courseNum.ToString().ToLower());
+                            PrintStudents(courseNumList.ToList<Student>());
+                            break;
+                        default:
+                            Console.WriteLine("Unsupported option");
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"ERROR: Search failed. Trace: {e.Message}");
             }
         }
 
@@ -130,10 +175,8 @@ namespace Day_16
             }
             catch (Exception e)
             {
-
                 Console.WriteLine($"ERROR: Unable to remove studnet. Trace: {e.Message}");
             }
-
         }
 
         public String getName()

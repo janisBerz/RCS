@@ -20,10 +20,12 @@ namespace Day_16
                 Console.WriteLine("2 - print students");
                 Console.WriteLine("3 - remove students");
                 Console.WriteLine("4 - edit student");
+                Console.WriteLine("5 - search student");
                 Console.WriteLine("7 - add test data");
                 Console.WriteLine("8 - drop student DB");
                 Console.WriteLine("0 - exit");
 
+                Console.Write("Enter operation: ");
                 answer = Console.ReadLine();
 
                 switch (answer)
@@ -39,6 +41,9 @@ namespace Day_16
                         break;
                     case "4":
                         Student.EditStudent(students);
+                        break;
+                    case "5":
+                        Student.SerchStudent(students);
                         break;
                     case "7":
                         for (int i = 0; i < 10; i++)
