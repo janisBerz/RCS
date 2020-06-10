@@ -43,12 +43,26 @@ namespace Day_16
             this.course = course;
         }
 
+        public String getName()
+        {
+            return name;
+        }
+
+        public String getSurname()
+        {
+            return surname;
+        }
+
+        public int getCourse()
+        {
+            return course;
+        }
+
+
         public string StudnetToString()
         {
             return $"{name},{surname},{course}";
         }
-
-
 
         // where would I add this method to Student or FileManager class?
         public static void PrintStudents(List<Student> students)
@@ -178,21 +192,5 @@ namespace Day_16
                 Console.WriteLine($"ERROR: Unable to remove studnet. Trace: {e.Message}");
             }
         }
-
-        public String getName()
-        {
-            return name;
-        }
-
-        public String getSurname()
-        {
-            return surname;
-        }
-
-        public int getCourse()
-        {
-            return course;
-        }
-
     }
 }

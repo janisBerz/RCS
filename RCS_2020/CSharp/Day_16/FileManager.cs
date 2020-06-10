@@ -45,7 +45,6 @@ namespace Day_16
             line = sr.ReadLine();
             while (line != null)
             {
-
                 string[] a = line.Split(',');
                 Student student = new Student(a[0], a[1], int.Parse(a[2]));
                 students.Add(student);
